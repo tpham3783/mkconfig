@@ -26,7 +26,7 @@ COMMON_CFLAGS=-Iinclude -std=gnu++11 -lstdc++
 
 bin/kconfig-mconf:
 	$(MAKE) -C tools/kconfig-frontends $(MAKEFLAGS)
-	$(INSTALL) $@ bin/kconfig-mconf
+	$(INSTALL) tools/kconfig-frontends/frontends/mconf/kconfig-mconf bin/kconfig-mconf
 
 
 $(APP): $(mkconfig_OBJECTS)

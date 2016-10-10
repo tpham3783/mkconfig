@@ -9,3 +9,4 @@ Instructions to use the example to generate config.h file
 3.  Run '../bin/mkconfig . > config.h'
 
 4.  Include the config.h file in your c/c++ project
+
