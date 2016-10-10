@@ -1,0 +1,4 @@
+config MY_PARAMETER
+bool "My Parameter"
+default n
+

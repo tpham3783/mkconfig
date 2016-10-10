@@ -1,0 +1,12 @@
+
+# mkconfig is an application that converts kconfig file (.config) to
+# a header file 
+
+# Compile app:
+
+  make
+
+
+# Use app:
+ 
+  ./mkconfig ../kconfig-frontends/example/

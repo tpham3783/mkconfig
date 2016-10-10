@@ -1,0 +1,11 @@
+
+Instructions to use the example to generate config.h file
+
+
+1.  Run '../bin/kconfig-mconf Kconfig menuconfig' to run the menu configurator
+
+2.  from the menu, exit then save to create a .config file
+
+3.  Run '../bin/mkconfig . > config.h'
+
+4.  Include the config.h file in your c/c++ project

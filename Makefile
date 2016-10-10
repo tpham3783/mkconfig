@@ -6,28 +6,38 @@
 
 
 mkconfig_SOURCES:=$(shell find . -maxdepth 1 -iname "*.c")
-mkconfig_OBJECTS=$(subst .c,.o,$(dmi_SOURCES));
+mkconfig_OBJECTS=$(subst .c,.o,$(mkconfig_SOURCES));
 
-APP=mkconfig
+APP=bin/mkconfig 
 
 VPATH=include
 
+INSTALL=install 
 
 .PHONY: all
 
 
 
-all: $(APP)
+all: $(APP) bin/kconfig-mconf
 
 
 COMMON_CFLAGS=-Iinclude -std=gnu++11 -lstdc++
 
-$(APP): $(dmi_OBJECTS)
-	$(AR) $(ARFLAGS) $@ $(mkconfig_OBJECTS)
+
+bin/kconfig-mconf:
+	$(MAKE) -C tools/kconfig-frontends $(MAKEFLAGS)
+	$(INSTALL) $@ bin/kconfig-mconf
+
+
+$(APP): $(mkconfig_OBJECTS)
+	echo $(mkconfig_OBJECTS)
+	$(CC) -o $@ $^
 	
 
 %.o: %.cpp	
 	$(CC) $(COMMON_CFLAGS) -c -o $@ $<
 	
 clean:
-	-rm *.o $(APP)
+	-rm *.o $(APP) bin/kconfig-mconf
+	$(MAKE) -C tools/kconfig-frontends clean
+	
