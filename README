@@ -10,3 +10,6 @@
 # Use app:
  
   ./mkconfig ../kconfig-frontends/example/
+
+
+# Please review example/README for instructions how to utilize mkconfig with kconfig
